@@ -43,20 +43,6 @@ class AdminPanelProvider extends PanelProvider
                 \Filament\Widgets\AccountWidget::class,
                 \Filament\Widgets\FilamentInfoWidget::class,
             ])
-            ->middleware([
-                EncryptCookies::class,
-                AddQueuedCookiesToResponse::class,
-                StartSession::class,
-                AuthenticateSession::class,
-                ShareErrorsFromSession::class,
-                VerifyCsrfToken::class,
-                SubstituteBindings::class,
-                DisableBladeIconComponents::class,
-                DispatchServingFilamentEvent::class,
-            ])
-            ->authMiddleware([
-                Authenticate::class,
-            ])
             ->renderHook(
                 PanelsRenderHook::HEAD_END,
                 fn(): string => '
@@ -87,6 +73,20 @@ class AdminPanelProvider extends PanelProvider
                     </style>
                 '
             )
+            ->middleware([
+                EncryptCookies::class,
+                AddQueuedCookiesToResponse::class,
+                StartSession::class,
+                AuthenticateSession::class,
+                ShareErrorsFromSession::class,
+                VerifyCsrfToken::class,
+                SubstituteBindings::class,
+                DisableBladeIconComponents::class,
+                DispatchServingFilamentEvent::class,
+            ])
+            ->authMiddleware([
+                Authenticate::class,
+            ])
             ->renderHook(
                 PanelsRenderHook::BODY_END,
                 fn(): string => app()->environment(['local', 'development']) ?

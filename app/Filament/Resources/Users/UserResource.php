@@ -16,19 +16,19 @@ use UnitEnum;
 
 class UserResource extends Resource
 {
-    protected static ?string $model = User::class;
+    protected static $model = User::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-users';
+    protected static $navigationIcon = 'heroicon-o-users';
 
-    protected static UnitEnum|string|null $navigationGroup = 'User Management';
+    protected static $navigationGroup = 'User Management';
 
-    protected static ?int $navigationSort = 10;
+    protected static $navigationSort = 10;
 
-    protected static ?string $navigationLabel = 'Users';
+    protected static $navigationLabel = 'Users';
 
-    protected static ?string $modelLabel = 'User';
+    protected static $modelLabel = 'User';
 
-    protected static ?string $pluralModelLabel = 'Users';
+    protected static $pluralModelLabel = 'Users';
 
     public static function form(Schema $schema): Schema
     {

@@ -12,11 +12,11 @@ use Filament\Tables\Table;
 
 class ProductVariantResource extends Resource
 {
-    protected static ?string $model = ProductVariant::class;
+    protected static $model = ProductVariant::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-swatch';
-    protected static ?string $navigationGroup = 'Product Management';
-    protected static ?int $navigationSort = 3;
+    protected static $navigationIcon = 'heroicon-o-swatch';
+    protected static $navigationGroup = 'Product Management';
+    protected static $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

@@ -12,11 +12,11 @@ use Filament\Tables\Table;
 
 class StockHistoryResource extends Resource
 {
-    protected static ?string $model = StockHistory::class;
+    protected static $model = StockHistory::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-clock';
-    protected static ?string $navigationGroup = 'Inventory Management';
-    protected static ?int $navigationSort = 5;
+    protected static $navigationIcon = 'heroicon-o-clock';
+    protected static $navigationGroup = 'Inventory Management';
+    protected static $navigationSort = 5;
 
     public static function form(Form $form): Form
     {

@@ -12,11 +12,11 @@ use Filament\Tables\Table;
 
 class PurchaseOrderResource extends Resource
 {
-    protected static ?string $model = PurchaseOrder::class;
+    protected static $model = PurchaseOrder::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
-    protected static ?string $navigationGroup = 'Inventory Management';
-    protected static ?int $navigationSort = 2;
+    protected static $navigationIcon = 'heroicon-o-shopping-cart';
+    protected static $navigationGroup = 'Inventory Management';
+    protected static $navigationSort = 2;
 
     public static function form(Form $form): Form
     {

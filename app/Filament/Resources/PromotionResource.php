@@ -12,11 +12,11 @@ use Filament\Tables\Table;
 
 class PromotionResource extends Resource
 {
-    protected static ?string $model = Promotion::class;
+    protected static $model = Promotion::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-megaphone';
-    protected static ?string $navigationGroup = 'Marketing & Promotions';
-    protected static ?int $navigationSort = 1;
+    protected static $navigationIcon = 'heroicon-o-megaphone';
+    protected static $navigationGroup = 'Marketing & Promotions';
+    protected static $navigationSort = 1;
 
     public static function form(Form $form): Form
     {

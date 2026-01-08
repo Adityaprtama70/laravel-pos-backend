@@ -12,10 +12,10 @@ use Filament\Tables\Table;
 
 class OutletResource extends Resource
 {
-    protected static ?string $model = Outlet::class;
+    protected static $model = Outlet::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
-    protected static ?string $navigationGroup = 'Business Management';
+    protected static $navigationIcon = 'heroicon-o-building-storefront';
+    protected static $navigationGroup = 'Business Management';
 
     public static function form(Form $form): Form
     {

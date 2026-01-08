@@ -14,15 +14,17 @@ use UnitEnum;
 
 class CompanyResource extends Resource
 {
-    protected static ?string $model = Company::class;
+    protected static $model = Company::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-office-2';
+    protected static $navigationIcon = 'heroicon-o-building-office-2';
 
-    protected static UnitEnum|string|null $navigationGroup = 'Business Management';
+    protected static $navigationGroup = 'Business Management';
 
-    protected static ?int $navigationSort = 1;
+    protected static $navigationSort = 1;
 
-    protected static ?string $navigationLabel = 'Businesses';
+    protected static $navigationLabel = 'Businesses';
+
+    protected static $slug = 'company-settings';
 
     public static function form(Schema $schema): Schema
     {

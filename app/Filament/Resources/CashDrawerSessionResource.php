@@ -12,11 +12,11 @@ use Filament\Tables\Table;
 
 class CashDrawerSessionResource extends Resource
 {
-    protected static ?string $model = CashDrawerSession::class;
+    protected static $model = CashDrawerSession::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-inbox-stack';
-    protected static ?string $navigationGroup = 'Sales & Orders';
-    protected static ?int $navigationSort = 4;
+    protected static $navigationIcon = 'heroicon-o-inbox-stack';
+    protected static $navigationGroup = 'Sales & Orders';
+    protected static $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
