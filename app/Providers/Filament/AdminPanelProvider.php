@@ -28,14 +28,11 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->registration()
             ->login(\App\Filament\Pages\Auth\Login::class)
-            ->brandName('JagoHRIS')
-            ->brandLogo(asset('img/logo-jagohris.svg'))
-            ->darkModeBrandLogo(asset('img/logo-jagohris-dark.svg'))
-            ->brandLogoHeight('2rem')
-            ->favicon(asset('favicon.svg'))
+            ->brandName('POS SaaS Technorise')
             ->colors([
                 'primary' => Color::Blue,
             ])
+            ->darkMode(true)
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
@@ -43,11 +40,8 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-                \App\Filament\Widgets\DashboardStatsWidget::class,
-                \App\Filament\Widgets\AttendanceChartWidget::class,
-                \App\Filament\Widgets\LatestAttendanceWidget::class,
-                \App\Filament\Widgets\PendingApprovalsWidget::class,
-                \App\Filament\Widgets\PendingOvertimeWidget::class,
+                \Filament\Widgets\AccountWidget::class,
+                \Filament\Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -63,6 +57,36 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ])
+            ->renderHook(
+                PanelsRenderHook::HEAD_END,
+                fn(): string => '
+                    <style>
+                        :root {
+                            --gray-950: 0, 0, 0; /* Pure Black Background */
+                            --gray-900: 20, 20, 20; /* Very Dark Gray for Cards */
+                        }
+                        .fi-body {
+                            background-color: rgb(var(--gray-950)) !important;
+                        }
+                        .fi-main {
+                            background-color: rgb(var(--gray-950)) !important;
+                        }
+                        .fi-sidebar {
+                            background-color: rgb(var(--gray-950)) !important;
+                            border-right-color: #333 !important;
+                        }
+                        .fi-section {
+                            background-color: rgb(var(--gray-900)) !important;
+                            border-color: #333 !important;
+                        }
+                        .fi-input, .fi-select-input {
+                            background-color: #222 !important;
+                            border-color: #444 !important;
+                            color: white !important;
+                        }
+                    </style>
+                '
+            )
             ->renderHook(
                 PanelsRenderHook::BODY_END,
                 fn(): string => app()->environment(['local', 'development']) ?

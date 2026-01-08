@@ -16,15 +16,13 @@ class CompanyResource extends Resource
 {
     protected static ?string $model = Company::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-office';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-office-2';
 
-    protected static UnitEnum|string|null $navigationGroup = 'Settings';
+    protected static UnitEnum|string|null $navigationGroup = 'Business Management';
 
-    protected static ?int $navigationSort = 60;
+    protected static ?int $navigationSort = 1;
 
-    protected static ?string $navigationLabel = 'Company Settings';
-
-    protected static ?string $slug = 'company-settings';
+    protected static ?string $navigationLabel = 'Businesses';
 
     public static function form(Schema $schema): Schema
     {
