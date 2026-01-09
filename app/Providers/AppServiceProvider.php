@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
 
         // Register model observers
-        LeaveType::observe(LeaveTypeObserver::class);
+        // LeaveType::observe(LeaveTypeObserver::class);
     }
 }

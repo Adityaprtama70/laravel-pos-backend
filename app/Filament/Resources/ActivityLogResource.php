@@ -4,23 +4,25 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ActivityLogResource\Pages;
 use App\Models\ActivityLog;
+use BackedEnum;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class ActivityLogResource extends Resource
 {
     protected static ?string $model = ActivityLog::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static ?string $navigationGroup = 'Settings & System';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|UnitEnum|null $navigationGroup = 'Settings & System';
     protected static ?int $navigationSort = 1;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
@@ -52,3 +54,4 @@ class ActivityLogResource extends Resource
         ];
     }
 }
+

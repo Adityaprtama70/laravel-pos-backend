@@ -5,22 +5,24 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\OrderPaymentResource\Pages;
 use App\Models\OrderPayment;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use BackedEnum;
+use UnitEnum;
 
 class OrderPaymentResource extends Resource
 {
     protected static ?string $model = OrderPayment::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-banknotes';
-    protected static ?string $navigationGroup = 'Sales & Orders';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-banknotes';
+    protected static string|UnitEnum|null $navigationGroup = 'Sales & Orders';
     protected static ?int $navigationSort = 3;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
@@ -52,3 +54,5 @@ class OrderPaymentResource extends Resource
         ];
     }
 }
+
+

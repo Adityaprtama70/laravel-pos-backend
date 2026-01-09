@@ -5,22 +5,24 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CustomerResource\Pages;
 use App\Models\Customer;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use BackedEnum;
+use UnitEnum;
 
 class CustomerResource extends Resource
 {
     protected static ?string $model = Customer::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-    protected static ?string $navigationGroup = 'Sales & Orders';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-users';
+    protected static string|UnitEnum|null $navigationGroup = 'Sales & Orders';
     protected static ?int $navigationSort = 2;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
@@ -52,3 +54,5 @@ class CustomerResource extends Resource
         ];
     }
 }
+
+

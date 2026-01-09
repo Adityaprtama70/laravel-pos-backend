@@ -5,21 +5,23 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\OutletResource\Pages;
 use App\Models\Outlet;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use BackedEnum;
+use UnitEnum;
 
 class OutletResource extends Resource
 {
     protected static ?string $model = Outlet::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
-    protected static ?string $navigationGroup = 'Business Management';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-storefront';
+    protected static string|UnitEnum|null $navigationGroup = 'Business Management';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\Grid::make(2)
                     ->schema([
@@ -106,3 +108,5 @@ class OutletResource extends Resource
         ];
     }
 }
+
+

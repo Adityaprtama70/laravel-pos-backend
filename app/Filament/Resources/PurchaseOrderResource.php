@@ -5,22 +5,24 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PurchaseOrderResource\Pages;
 use App\Models\PurchaseOrder;
 use Filament\Forms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use BackedEnum;
+use UnitEnum;
 
 class PurchaseOrderResource extends Resource
 {
     protected static ?string $model = PurchaseOrder::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
-    protected static ?string $navigationGroup = 'Inventory Management';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-shopping-cart';
+    protected static string|UnitEnum|null $navigationGroup = 'Inventory Management';
     protected static ?int $navigationSort = 2;
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->required(),
@@ -52,3 +54,5 @@ class PurchaseOrderResource extends Resource
         ];
     }
 }
+
+
