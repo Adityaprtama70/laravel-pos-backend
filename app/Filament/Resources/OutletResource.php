@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\OutletResource\Pages;
 use App\Models\Outlet;
 use Filament\Forms;
-use Filament\Schemas\Schema;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -19,9 +19,9 @@ class OutletResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-building-storefront';
     protected static string|UnitEnum|null $navigationGroup = 'Business Management';
 
-    public static function form(Schema $schema): Schema
+    public static function form(Form $form): Form
     {
-        return $schema
+        return $form
             ->schema([
                 Forms\Components\Grid::make(2)
                     ->schema([
@@ -108,5 +108,3 @@ class OutletResource extends Resource
         ];
     }
 }
-
-

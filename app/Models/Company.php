@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Company extends Model
 {
@@ -18,4 +19,9 @@ class Company extends Model
         'radius_km',
         'attendance_type',
     ];
+
+    public function outlets(): HasMany
+    {
+        return $this->hasMany(Outlet::class);
+    }
 }
